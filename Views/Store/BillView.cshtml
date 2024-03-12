@@ -1,0 +1,87 @@
+﻿@model IEnumerable<RecipentStore.Dto.BillDto>
+
+@{
+    ViewData["Title"] = "BillView";
+}
+
+<h1>Dokumenty</h1>
+
+<p>
+    <a asp-action="BillCreate" class="btn btn-primary">Dodaj dokument</a>
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.File)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FileExtension)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BillTypeID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BillTypeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShopID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShopName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShopNip)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.File)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileExtension)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillTypeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShopID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShopName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShopNip)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<RecipentStore.Dto.ShopDto>
+
+@{
+    ViewData["Title"] = "ShopView";
+}
+
+<h1 >Sklepy</h1>
+
+<p>
+    <a asp-action="ShopCreate" class="btn btn-primary">Dodaj sklep</a>
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ShopName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NIP)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShopName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NIP)
+            </td>
+            <td>
+                    <a asp-action="Details" asp-route-id="@item.ShopId">Szczegóły</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

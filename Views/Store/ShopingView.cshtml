@@ -1,0 +1,75 @@
+﻿@model IEnumerable<RecipentStore.Dto.ShopingDto>
+
+@{
+    ViewData["Title"] = "ShopingView";
+}
+
+<h1>Zakupy</h1>
+
+<p>
+    <a asp-action="ShopingCreate" class="btn btn-primary">Dodaj zakup</a>
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ShopingName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BillID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BillName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShopID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShopName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShopingName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShopID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShopName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.ID">Szczegóły</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
